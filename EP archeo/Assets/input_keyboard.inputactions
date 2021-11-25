@@ -1,0 +1,94 @@
+{
+    "name": "input_keyboard",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "4979ec19-e33c-4910-97bc-bf5636498087",
+            "actions": [
+                {
+                    "name": "Change_Transparency_incrementation_modele",
+                    "type": "Value",
+                    "id": "7416fe24-b974-4e3a-aa1b-66eabc13a30a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Change_Transparency_decrementation_modele",
+                    "type": "Button",
+                    "id": "e70c6aab-0113-41a0-8d3d-6142abeb24fd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Change_T_increm_photo",
+                    "type": "Button",
+                    "id": "42267262-cc03-43cb-91e0-6469dce88740",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Change_T_decrem_photo",
+                    "type": "Button",
+                    "id": "0fb08651-ba23-49e8-83e1-151530696d6a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b7f90240-ba27-4770-8141-2e963b8383cd",
+                    "path": "<Keyboard>/#(A)",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change_Transparency_incrementation_modele",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "607eb221-b3c7-495a-8ea8-6240d7fc4a3b",
+                    "path": "<Keyboard>/#(Z)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change_Transparency_decrementation_modele",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3e8f7d2a-d90d-467c-9091-4c43cf8d6ea5",
+                    "path": "<Keyboard>/#(Q)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change_T_increm_photo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4fa2af76-629f-4dde-822d-5b604483a164",
+                    "path": "<Keyboard>/#(S)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change_T_decrem_photo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
