@@ -1134,23 +1134,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 01d8fd734da32d44a9646599a2176740, type: 3}
   m_PrefabInstance: {fileID: 410638566}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &410638568 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 01d8fd734da32d44a9646599a2176740, type: 3}
-  m_PrefabInstance: {fileID: 410638566}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &410638569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 410638568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cca8b7cfb97d372409efee8330db91e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &423851731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1323,7 +1306,7 @@ Transform:
   - {fileID: 157956178}
   - {fileID: 1710995581}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &512505744 stripped
 Transform:
@@ -1483,6 +1466,18 @@ MonoBehaviour:
   plane2Rotation: {x: 0, y: 90, z: 90}
   plane3Position: {x: 0, y: 0, z: 0}
   plane3Rotation: {x: 0, y: 0, z: 90}
+--- !u!114 &560002023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560002018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a5b5132d03e13c49982714cc5541cba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &579274799 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 470884, guid: 5c9fcce56ce141242b4795f96796d784, type: 3}
@@ -2591,8 +2586,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1272844505}
-        m_TargetAssemblyTypeName: MakeTransparent, Assembly-CSharp
+      - m_Target: {fileID: 560002023}
+        m_TargetAssemblyTypeName: MakeTransparent_tregeux_simplified, Assembly-CSharp
         m_MethodName: increment
         m_Mode: 4
         m_Arguments:
@@ -2607,8 +2602,8 @@ MonoBehaviour:
     m_ActionName: Player/Change_Transparency[/Keyboard/q]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1272844505}
-        m_TargetAssemblyTypeName: MakeTransparent, Assembly-CSharp
+      - m_Target: {fileID: 560002023}
+        m_TargetAssemblyTypeName: MakeTransparent_tregeux_simplified, Assembly-CSharp
         m_MethodName: increment
         m_Mode: 4
         m_Arguments:
@@ -2670,7 +2665,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &793754203
 PrefabInstance:
@@ -2839,23 +2834,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 33a4932d9cb589048b50f6676a940b82, type: 3}
   m_PrefabInstance: {fileID: 818845156}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &818845158 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 33a4932d9cb589048b50f6676a940b82, type: 3}
-  m_PrefabInstance: {fileID: 818845156}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &818845159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 818845158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3b0e69b2e60c64d8f855a622cdd3dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &891342986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3249,6 +3227,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2ee819b1fd3d248bf1386ae08e4116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &977359378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977359373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 224b92563824cb94799c72b68696ec38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clipPlanes: 0
+  planePreviewSize: 5
+  plane1Position: {x: 0, y: 0, z: 0}
+  plane1Rotation: {x: 0, y: 0, z: 0}
+  plane2Position: {x: 0, y: 0, z: 0}
+  plane2Rotation: {x: 0, y: 90, z: 90}
+  plane3Position: {x: 0, y: 0, z: 0}
+  plane3Rotation: {x: 0, y: 0, z: 90}
 --- !u!1001 &977926212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3830,31 +3828,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 458662, guid: facf14ae9ce68b7479827bcf72fba835, type: 3}
   m_PrefabInstance: {fileID: 1118069808}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1127647348 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 33a4932d9cb589048b50f6676a940b82, type: 3}
-  m_PrefabInstance: {fileID: 818845156}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1127647352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1127647348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 224b92563824cb94799c72b68696ec38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clipPlanes: 0
-  planePreviewSize: 5
-  plane1Position: {x: 0, y: 0, z: 0}
-  plane1Rotation: {x: 0, y: 0, z: 0}
-  plane2Position: {x: 0, y: 0, z: 0}
-  plane2Rotation: {x: 0, y: 90, z: 90}
-  plane3Position: {x: 0, y: 0, z: 0}
-  plane3Rotation: {x: 0, y: 0, z: 90}
 --- !u!1001 &1129144985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4126,23 +4099,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!1 &1272844503 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -2513528866564180132, guid: 01d8fd734da32d44a9646599a2176740, type: 3}
-  m_PrefabInstance: {fileID: 410638566}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1272844505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272844503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a5b5132d03e13c49982714cc5541cba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1276374083
 PrefabInstance:
   m_ObjectHideFlags: 0
