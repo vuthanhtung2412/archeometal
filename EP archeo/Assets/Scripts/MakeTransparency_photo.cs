@@ -9,6 +9,7 @@ public class MakeTransparency_photo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		this.increment(1f);
     }
 
     // Update is called once per frame
@@ -26,6 +27,7 @@ public class MakeTransparency_photo : MonoBehaviour
             colorFaded.a = Mathf.Clamp(colorFaded.a + value, 0, 1);
             Debug.Log(colorFaded.a);
             this.gameObject.GetComponent<Renderer>().materials[i].color = colorFaded;
+			this.gameObject.GetComponent<Renderer>().materials[i].renderQueue=(int)UnityEngine.Rendering.RenderQueue.Transparent;
             Debug.Log(this.gameObject.GetComponent<Renderer>().materials[i].color);
         }
     }

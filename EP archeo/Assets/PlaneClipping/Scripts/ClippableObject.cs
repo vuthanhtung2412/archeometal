@@ -19,6 +19,7 @@ public class ClippableObject : MonoBehaviour {
 		
 		foreach (Material sharedMaterial in mats) {
 			sharedMaterial.shader=Shader.Find("Custom/StandardClippable");
+			sharedMaterial.renderQueue=(int)UnityEngine.Rendering.RenderQueue.Transparent;
 		}
 		GetComponent<MeshRenderer>().materials = mats;
 	}
