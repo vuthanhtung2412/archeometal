@@ -1451,6 +1451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 539039589}
   - component: {fileID: 539039588}
+  - component: {fileID: 539039590}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
@@ -1493,6 +1494,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &539039590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539039587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397f8cd71277e5a479f711f93998ecb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touch: {fileID: 6513576886849134098, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  touchPosition: {fileID: -4599708795058570377, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  click: {fileID: 5287602649289306822, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &560002018 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2513528866564180132, guid: 01d8fd734da32d44a9646599a2176740, type: 3}
