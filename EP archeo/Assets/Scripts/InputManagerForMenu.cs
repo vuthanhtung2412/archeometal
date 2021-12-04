@@ -12,27 +12,38 @@ public class InputManagerForMenu : MonoBehaviour
     public InputActionReference click = null;
     //public SteamVR_Action_Boolean select = null;
     // Start is called before the first frame update
+
+    [Header("Objects")]
+    public RadialMenu radialMenu = null;
     private void Awake()
     {
         this.touch.action.started += ShowMenu;
         this.touchPosition.action.performed += EmitPos;
         this.click.action.started += ChooseMode;
     }
-
+    private void OnDestroy()
+    {
+        this.touch.action.started -= ShowMenu;
+        this.touchPosition.action.performed -= EmitPos;
+        this.click.action.started -= ChooseMode;
+    }
 
     // Update is called once per frame
     void ShowMenu(InputAction.CallbackContext context)
     {
         Debug.Log("Touched");
+        radialMenu.Show(context.ReadValue<bool>());
     }
 
     void EmitPos(InputAction.CallbackContext context)
     {
         //Debug.Log("Pos selected" + context.ReadValue<Vector2>());
+        radialMenu.SetTouchPosition(context.ReadValue<Vector2>());
     }
 
     void ChooseMode(InputAction.CallbackContext context)
     {
         Debug.Log("Clicked");
+        radialMenu.HightlightSection();
     }
 }
