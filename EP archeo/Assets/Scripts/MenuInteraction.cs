@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuInteraction : MonoBehaviour
 {
@@ -11,8 +12,11 @@ public class MenuInteraction : MonoBehaviour
     public GameObject photogrametry;
     public GameObject clippingPlane;
     [Range(1, 3)]
-    public float scale;
+    public float scale ;
     public Vector3 initScale;
+    public Slider sizeSlider;
+    public Text nameOfSelectedItem;
+
     void Start()
     {
         this.mesh = this.StudyObj.transform.GetChild(0).gameObject;
@@ -21,11 +25,13 @@ public class MenuInteraction : MonoBehaviour
         this.initScale = StudyObj.transform.localScale;
         this.scale = 1.0f;
         Debug.Log(this.StudyObj.name);
+        sizeSlider.onValueChanged.AddListener(delegate { ChangeScale(); });
     }
     // Update is called once per frame
     void Update()
     {
         this.StudyObj.transform.localScale = this.initScale * this.scale;
+        this.nameOfSelectedItem.text = "Selected item : "+this.StudyObj.name;
     }
 
     public void Mode0()
@@ -56,5 +62,9 @@ public class MenuInteraction : MonoBehaviour
             this.clippingPlane.GetComponent<GlobalClippingManager>().planeNb = 0;
             this.clippingPlane.GetComponent<GlobalClippingManager>().cameraNb = 0;
         }
+    }
+    public void ChangeScale()
+    {
+        this.scale = 1.0f + 2.0f * sizeSlider.value;
     }
 }
