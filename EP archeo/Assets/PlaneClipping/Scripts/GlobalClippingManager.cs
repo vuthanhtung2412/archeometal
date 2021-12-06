@@ -31,9 +31,9 @@ public class GlobalClippingManager : MonoBehaviour {
 	public GameObject screen3;
 	
 	[Range (0,3)]
-	public int planeNb;
+	public int planeNb = 0;
 	[Range (0,3)]
-	public int cameraNb;
+	public int cameraNb = 0;
 	
 	private int planeNbOld=-1;
 	private int cameraNbOld=-1;
