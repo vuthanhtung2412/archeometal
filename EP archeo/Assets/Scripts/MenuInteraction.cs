@@ -45,12 +45,13 @@ public class MenuInteraction : MonoBehaviour
     }
     public void DisplayClippingPlanes()
     {
+        Debug.Log("Displayed Clipping planes");
         if (this.clippingPlane.GetComponent<GlobalClippingManager>().planeNb == 0)
         {
             this.clippingPlane.GetComponent<GlobalClippingManager>().planeNb = 3;
             this.clippingPlane.GetComponent<GlobalClippingManager>().cameraNb = 3;
         }
-        if (this.clippingPlane.GetComponent<GlobalClippingManager>().planeNb == 3)
+        else
         {
             this.clippingPlane.GetComponent<GlobalClippingManager>().planeNb = 0;
             this.clippingPlane.GetComponent<GlobalClippingManager>().cameraNb = 0;

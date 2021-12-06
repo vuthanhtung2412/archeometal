@@ -18,8 +18,9 @@ public class InputManagerForMenu : MonoBehaviour
     private void Awake()
     {
         this.touch.action.started += ShowMenu;
+        this.touch.action.canceled += HideMenu;
         this.touchPosition.action.performed += EmitPos;
-        this.click.action.started += ChooseMode;
+        this.click.action.performed += ChooseMode;
     }
     private void OnDestroy()
     {
@@ -31,8 +32,14 @@ public class InputManagerForMenu : MonoBehaviour
     // Update is called once per frame
     void ShowMenu(InputAction.CallbackContext context)
     {
-        Debug.Log("Touched");
-        radialMenu.Show(context.ReadValue<bool>());
+        Debug.Log("Touched"+ context.ReadValue<float>());
+        radialMenu.Show(true);
+    }
+
+    void HideMenu(InputAction.CallbackContext context)
+    {
+        Debug.Log("Touched" + context.ReadValue<float>());
+        radialMenu.Show(false);
     }
 
     void EmitPos(InputAction.CallbackContext context)
