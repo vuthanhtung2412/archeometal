@@ -1,41 +1,41 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class OffsetGrabInteractable : XRGrabInteractable
+public class OffsetGrabInteractable:XRGrabInteractable
 {
-    public Vector3 interactorPosition = Vector3.zero;
-    public Quaternion interactorRotation = Quaternion.identity;
+    private Vector3 interactorPosition = Vector3.zero;
+    private Quaternion interactorRotation = Quaternion.identity;
 
-    protected override void OnSelectEnter(XRBaseInteractor interactor)
+    protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
-        base.OnSelectEnter(interactor);
-        StoreInteractor(interactor);
-        MatchAttachmentPoints(interactor);
+        base.OnSelectEntered(args);
+        StoreInteractor(args);
+        MatchAttachmentPoints(args);
     }
-    private void StoreInteractor(XRBaseInteractor interactor)
+    private void StoreInteractor(SelectEnterEventArgs args)
     {
-        interactorPosition = interactor.attachTransform.localPosition;
-        interactorRotation = interactor.attachTransform.localRotaion;
+        interactorPosition = args.interactor.attachTransform.localPosition;
+        interactorRotation = args.interactor.attachTransform.localRotation;
     }
-    private void MatchAttachmentPoints(XRBaseInteractor interactor)
+    private void MatchAttachmentPoints(SelectEnterEventArgs args)
     {
         bool hasAttach = attachTransform != null;
-        interactor.attachTransform.localPosition = hasAttach ? attachTransform.position : transform.position;
-        interactor.attachTransform.localRotaion = hasAttach ? attachTransform.rotation : transform.rotation;
+        args.interactor.attachTransform.localPosition = hasAttach ? attachTransform.position : transform.position;
+        args.interactor.attachTransform.localRotation = hasAttach ? attachTransform.rotation : transform.rotation;
     }
 
-    protected override void OnSelectExit(XRBaseInteractor interactor)
+    protected override void OnSelectExited(SelectExitEventArgs args)
     {
-        base.OnSelectExit(interactor);
-        ResetAttachMentPoint(interactor);
-        ClearInteractor(interactor);
+        base.OnSelectExited(args);
+        ResetAttachMentPoint(args);
+        ClearInteractor(args);
     }
-    private void ResetAttachMentPoint(XRBaseInteractor interactor)
+    private void ResetAttachMentPoint(SelectExitEventArgs args)
     {
-        interactor.attachTransform.localPosition = interactorPosition;
-        interactor.attachTransform.localRotaion = interactorRotation;
+        args.interactor.attachTransform.localPosition = interactorPosition;
+        args.interactor.attachTransform.localRotation = interactorRotation;
     }
-    private void ClearInteractor(XRBaseInteractor interactor)
+    private void ClearInteractor(SelectExitEventArgs args)
     {
         interactorPosition = Vector3.zero;
         interactorRotation = Quaternion.identity;
