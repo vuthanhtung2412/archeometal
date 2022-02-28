@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MenuInteraction : MonoBehaviour
+public class EventCentre : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject StudyObj;
@@ -24,7 +24,7 @@ public class MenuInteraction : MonoBehaviour
         this.clippingPlane = GameObject.Find("Clipping Planes");
         this.initScale = StudyObj.transform.localScale;
         this.scale = 1.0f;
-        Debug.Log(this.StudyObj.name);
+        //Debug.Log(this.StudyObj.name);
         sizeSlider.onValueChanged.AddListener(delegate { ChangeScale(); });
     }
     // Update is called once per frame
@@ -36,16 +36,19 @@ public class MenuInteraction : MonoBehaviour
 
     public void Mode0()
     {
+        Debug.Log("Mesh+Phot");
         this.mesh.SetActive(true);
         this.photogrametry.SetActive(true);
     }
     public void Mode1()
     {
+        Debug.Log("Mesh");
         this.mesh.SetActive(true);
         this.photogrametry.SetActive(false);
     }
     public void Mode2()
     {
+        Debug.Log("Phot");
         this.mesh.SetActive(false);
         this.photogrametry.SetActive(true);
     }
