@@ -3056,7 +3056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7949867569115068648, guid: e34ed511fb45f2849a53e98192168e2b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7949867569115068649, guid: e34ed511fb45f2849a53e98192168e2b, type: 3}
       propertyPath: m_RootOrder
@@ -4532,7 +4532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7949867569115068654, guid: e34ed511fb45f2849a53e98192168e2b, type: 3}
       propertyPath: top.onClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Mode0
+      value: MeshEtPhot
       objectReference: {fileID: 0}
     - target: {fileID: 7949867569115068654, guid: e34ed511fb45f2849a53e98192168e2b, type: 3}
       propertyPath: left.onClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -4548,11 +4548,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7949867569115068654, guid: e34ed511fb45f2849a53e98192168e2b, type: 3}
       propertyPath: right.onClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Mode1
+      value: Mesh
       objectReference: {fileID: 0}
     - target: {fileID: 7949867569115068654, guid: e34ed511fb45f2849a53e98192168e2b, type: 3}
       propertyPath: bottom.onClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Mode2
+      value: Phot
       objectReference: {fileID: 0}
     - target: {fileID: 7949867569115068654, guid: e34ed511fb45f2849a53e98192168e2b, type: 3}
       propertyPath: top.onClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -4734,9 +4734,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397f8cd71277e5a479f711f93998ecb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touch: {fileID: 0}
-  touchPosition: {fileID: 0}
-  click: {fileID: 0}
+  touch: {fileID: 8248158260566104461, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  touchPosition: {fileID: -5449338040937076505, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  click: {fileID: 7392493696739451472, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   radialMenu: {fileID: 1112387370}
 --- !u!114 &1112387370 stripped
 MonoBehaviour:
@@ -5370,6 +5370,7 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+  EC: {fileID: 0}
 --- !u!54 &1305133038
 Rigidbody:
   m_ObjectHideFlags: 0

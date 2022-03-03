@@ -21,6 +21,7 @@ public class OffsetGrabInteractable:XRGrabInteractable
 
     private Vector3 initialAttachLocalPos;
     private Quaternion initialAttachLocalRot;
+    public EventCentre EC;
     void Start()
     {
         // create attachment point
@@ -32,6 +33,7 @@ public class OffsetGrabInteractable:XRGrabInteractable
         }
         initialAttachLocalPos = attachTransform.localPosition;
         initialAttachLocalRot = attachTransform.localRotation;
+        EC = GameObject.Find("EventCentre").GetComponent<EventCentre>();
     }
 
     protected override void OnSelectEntering(SelectEnterEventArgs args)
@@ -55,5 +57,6 @@ public class OffsetGrabInteractable:XRGrabInteractable
     {
         base.Grab();
         Debug.Log(base.name);
+        EC.UpdateStudyObj(base.gameObject);
     }
 }

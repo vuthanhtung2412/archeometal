@@ -34,19 +34,19 @@ public class EventCentre : MonoBehaviour
         this.StudyObj.transform.localScale = this.initScale * this.scale;
     }
 
-    public void Mode0()
+    public void MeshEtPhot()
     {
         Debug.Log("Mesh+Phot");
         this.mesh.SetActive(true);
         this.photogrametry.SetActive(true);
     }
-    public void Mode1()
+    public void Mesh()
     {
         Debug.Log("Mesh");
         this.mesh.SetActive(true);
         this.photogrametry.SetActive(false);
     }
-    public void Mode2()
+    public void Phot()
     {
         Debug.Log("Phot");
         this.mesh.SetActive(false);
@@ -66,6 +66,11 @@ public class EventCentre : MonoBehaviour
             this.clippingPlane.GetComponent<GlobalClippingManager>().cameraNb = 0;
         }
     }
+
+    public void MetadataPoints()
+    {
+
+    }
     public void ChangeScale()
     {
         this.scale = 1.0f + 2.0f * sizeSlider.value;
@@ -73,6 +78,6 @@ public class EventCentre : MonoBehaviour
 
     public void UpdateStudyObj(GameObject obj)
     {
-
+        Debug.Log("From Event Centre" + obj.name);
     }
 }
