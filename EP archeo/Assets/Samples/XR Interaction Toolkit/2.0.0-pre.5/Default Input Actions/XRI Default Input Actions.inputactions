@@ -1064,7 +1064,7 @@
                 {
                     "name": "",
                     "id": "5b3e4cb7-3359-455e-901a-8e94687c1628",
-                    "path": "dXRController>{RightHand}/touchpad",
+                    "path": "<XRController>{RightHand}/primary2DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
