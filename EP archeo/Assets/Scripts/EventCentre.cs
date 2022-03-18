@@ -25,7 +25,7 @@ public class EventCentre : MonoBehaviour
         this.initScale = StudyObj.transform.localScale;
         this.scale = 1.0f;
         //Debug.Log(this.StudyObj.name);
-        sizeSlider.onValueChanged.AddListener(delegate { ChangeScale(); });
+        //sizeSlider.onValueChanged.AddListener(delegate { ChangeScale(); });
         this.nameOfSelectedItem.text = "Selected item : " + this.StudyObj.name;
     }
     // Update is called once per frame
@@ -71,9 +71,10 @@ public class EventCentre : MonoBehaviour
     {
 
     }
-    public void ChangeScale()
+    public void ChangeScale(float delta)
     {
-        this.scale = 1.0f + 2.0f * sizeSlider.value;
+        //this.scale = 1.0f + 2.0f * sizeSlider.value;
+		this.scale += delta;
     }
 
     public void UpdateStudyObj(GameObject obj)
