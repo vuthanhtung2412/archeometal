@@ -237,6 +237,7 @@ inline UnityGI FragmentGI (
 	UnityLight light)
 {
 	UnityGIInput d;
+	UNITY_INITIALIZE_OUTPUT(UnityGIInput, d); // Shader fix, see below
 	d.light = light;
 	d.worldPos = posWorld;
 	d.worldViewDir = -eyeVec;
@@ -248,15 +249,23 @@ inline UnityGI FragmentGI (
 		d.ambient = i_ambientOrLightmapUV.rgb;
 		d.lightmapUV = 0;
 	#endif
-	d.boxMax[0] = unity_SpecCube0_BoxMax;
-	d.boxMin[0] = unity_SpecCube0_BoxMin;
-	d.probePosition[0] = unity_SpecCube0_ProbePosition;
-	d.probeHDR[0] = unity_SpecCube0_HDR;
+	
+	// Shader fix, see: https://stackoverflow.com/questions/47627410/unity-shader-invalid-subscript-boxmax
+	
+	#if UNITY_SPECCUBE_BLENDING || UNITY_SPECCUBE_BOX_PROJECTION
+		d.boxMin[0] = unity_SpecCube0_BoxMin;
+	#endif
+	
+	#if UNITY_SPECCUBE_BOX_PROJECTION	
+		d.boxMax[0] = unity_SpecCube0_BoxMax;
+		d.probePosition[0] = unity_SpecCube0_ProbePosition;
+		d.probeHDR[0] = unity_SpecCube0_HDR;
 
-	d.boxMax[1] = unity_SpecCube1_BoxMax;
-	d.boxMin[1] = unity_SpecCube1_BoxMin;
-	d.probePosition[1] = unity_SpecCube1_ProbePosition;
-	d.probeHDR[1] = unity_SpecCube1_HDR;
+		d.boxMax[1] = unity_SpecCube1_BoxMax;
+		d.boxMin[1] = unity_SpecCube1_BoxMin;
+		d.probePosition[1] = unity_SpecCube1_ProbePosition;
+		d.probeHDR[1] = unity_SpecCube1_HDR;
+	#endif
 
 	return UnityGlobalIllumination (
 		d, occlusion, oneMinusRoughness, normalWorld);

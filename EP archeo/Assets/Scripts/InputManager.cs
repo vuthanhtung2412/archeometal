@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 //using Valve.VR;
 
-public class InputManagerForMenu : MonoBehaviour
+public class InputManager : MonoBehaviour
 {
     [Header("Actions")]
     public InputActionReference touch = null;
@@ -32,13 +32,13 @@ public class InputManagerForMenu : MonoBehaviour
     // Update is called once per frame
     void ShowMenu(InputAction.CallbackContext context)
     {
-        Debug.Log("Touched"+ context.ReadValue<float>());
+        //Debug.Log("Touched"+ context.ReadValue<float>());
         radialMenu.Show(true);
     }
 
     void HideMenu(InputAction.CallbackContext context)
     {
-        Debug.Log("Touched" + context.ReadValue<float>());
+        //Debug.Log("Touched" + context.ReadValue<float>());
         radialMenu.Show(false);
     }
 
@@ -50,7 +50,7 @@ public class InputManagerForMenu : MonoBehaviour
 
     void ChooseMode(InputAction.CallbackContext context)
     {
-        Debug.Log("Clicked");
+        //Debug.Log("Clicked");
         radialMenu.HightlightSection();
     }
 }

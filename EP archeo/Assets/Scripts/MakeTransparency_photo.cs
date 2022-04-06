@@ -25,10 +25,10 @@ public class MakeTransparency_photo : MonoBehaviour
         {
             Color colorFaded = materials[i].color;
             colorFaded.a = Mathf.Clamp(colorFaded.a + value, 0, 1);
-            Debug.Log(colorFaded.a);
+            //Debug.Log(colorFaded.a);
             this.gameObject.GetComponent<Renderer>().materials[i].color = colorFaded;
 			this.gameObject.GetComponent<Renderer>().materials[i].renderQueue=(int)UnityEngine.Rendering.RenderQueue.Transparent;
-            Debug.Log(this.gameObject.GetComponent<Renderer>().materials[i].color);
+            //Debug.Log(this.gameObject.GetComponent<Renderer>().materials[i].color);
         }
     }
 }

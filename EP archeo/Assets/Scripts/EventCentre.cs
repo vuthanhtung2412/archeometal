@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MenuInteraction : MonoBehaviour
+public class EventCentre : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject StudyObj;
@@ -24,28 +24,31 @@ public class MenuInteraction : MonoBehaviour
         this.clippingPlane = GameObject.Find("Clipping Planes");
         this.initScale = StudyObj.transform.localScale;
         this.scale = 1.0f;
-        Debug.Log(this.StudyObj.name);
-        sizeSlider.onValueChanged.AddListener(delegate { ChangeScale(); });
+        //Debug.Log(this.StudyObj.name);
+        //sizeSlider.onValueChanged.AddListener(delegate { ChangeScale(); });
+        this.nameOfSelectedItem.text = "Selected item : " + this.StudyObj.name;
     }
     // Update is called once per frame
     void Update()
     {
         this.StudyObj.transform.localScale = this.initScale * this.scale;
-        this.nameOfSelectedItem.text = "Selected item : "+this.StudyObj.name;
     }
 
-    public void Mode0()
+    public void MeshEtPhot()
     {
+        Debug.Log("Mesh+Phot");
         this.mesh.SetActive(true);
         this.photogrametry.SetActive(true);
     }
-    public void Mode1()
+    public void Mesh()
     {
+        Debug.Log("Mesh");
         this.mesh.SetActive(true);
         this.photogrametry.SetActive(false);
     }
-    public void Mode2()
+    public void Phot()
     {
+        Debug.Log("Phot");
         this.mesh.SetActive(false);
         this.photogrametry.SetActive(true);
     }
@@ -63,8 +66,19 @@ public class MenuInteraction : MonoBehaviour
             this.clippingPlane.GetComponent<GlobalClippingManager>().cameraNb = 0;
         }
     }
-    public void ChangeScale()
+
+    public void MetadataPoints()
     {
-        this.scale = 1.0f + 2.0f * sizeSlider.value;
+
+    }
+    public void ChangeScale(float delta)
+    {
+        //this.scale = 1.0f + 2.0f * sizeSlider.value;
+		this.scale += delta;
+    }
+
+    public void UpdateStudyObj(GameObject obj)
+    {
+        Debug.Log("From Event Centre" + obj.name);
     }
 }

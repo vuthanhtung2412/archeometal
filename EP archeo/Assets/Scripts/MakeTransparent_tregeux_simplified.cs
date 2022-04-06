@@ -21,7 +21,7 @@ public class MakeTransparent_tregeux_simplified : MonoBehaviour
     {
         Color colorFaded = this.gameObject.GetComponent<Renderer>().material.color;
         colorFaded.a = Mathf.Clamp(colorFaded.a + value, 0, 1);
-        Debug.Log(colorFaded.a);
+        //Debug.Log(colorFaded.a);
 		
 		material = this.gameObject.GetComponent<Renderer>().material;
 		int defaultRenderQueue;
