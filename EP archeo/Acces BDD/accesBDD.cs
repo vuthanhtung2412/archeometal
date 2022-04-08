@@ -1,6 +1,5 @@
 
-
-public class AccesBDD {
+public class accesBDD : MonoBehaviour {
     
     //Récupération d'un objet par son identifiant 
     objectArcheo getByID(int id){
