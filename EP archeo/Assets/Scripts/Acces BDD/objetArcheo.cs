@@ -1,9 +1,16 @@
+using UnityEngine;
+using System.Data;
+using Mono.Data.Sqlite;
+using System.IO;
 
-public class objectArcheo : GameObject {
+
+public class objectArcheo {
+
+    public GameObject me;
 
     //Pour savoir si l'objet est un 'toy Object' ou pas, c'est à dire si on dispose du modèle 3D ou si l'on affiche simplement une forme
     bool isToyObject(){
-
+        return false;
     }
 
     //Modification de l'ID de fouille
