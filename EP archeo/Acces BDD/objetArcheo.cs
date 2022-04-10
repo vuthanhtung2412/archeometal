@@ -16,8 +16,19 @@ public class objectArcheo : GameObject {
         
     }
 
+    //Règle la potition et les rotations de l'objet
     void setInitialPosition(Transform pos){
-        
+
+    }
+
+    //Pour préciser les vues sur lesquelles apparait l'objet
+    void setVues(int[] views){
+
+    }
+
+    //Pour modifier la descritpion de l'objet
+    void setDescription(string text){
+
     }
 
 }
