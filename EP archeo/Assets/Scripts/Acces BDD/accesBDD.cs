@@ -3,32 +3,34 @@ using System.Data;
 using Mono.Data.Sqlite;
 using System.IO;
 
-
-public class accesBDD : MonoBehaviour
+namespace bdd_ep
 {
-
-    //Récupération d'un objet par son identifiant 
-    objectArcheo getByID(int id)
+    public class accesBDD : MonoBehaviour
     {
-        return null;
-    }
 
-    //Récupération des objets lié à un tag
-    objectArcheo[] getByTag(Tag tag)
-    {
-        return null;
-    }
+        //Récupération d'un objet par son identifiant 
+        objectArcheo getByID(int id)
+        {
+            return null;
+        }
 
-    //Récupération de tous les objets visibles une vue
-    objectArcheo[] getByView(int view)
-    {
-        return null;
-    }
+        //Récupération des objets lié à un tag
+        objectArcheo[] getByTag(Tag tag)
+        {
+            return null;
+        }
 
-    //Récupération d'un objet grâce à son nom
-    objectArcheo getByNom(string nom)
-    {
-        return null;
-    }
+        //Récupération de tous les objets visibles une vue
+        objectArcheo[] getByView(int view)
+        {
+            return null;
+        }
 
+        //Récupération d'un objet grâce à son nom
+        objectArcheo getByNom(string nom)
+        {
+            return null;
+        }
+
+    }
 }
