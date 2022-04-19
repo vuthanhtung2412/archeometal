@@ -54,7 +54,7 @@ namespace bdd_ep
         /// <param name="parentName">Nom du Tag parent</param>
         /// <param name="childName">Nom du Tag enfant</param>
         /// <returns>True si et seulement si tout s'est déroulé correctement</returns>
-        static bool declareTagPaternity(string parentName, string? childName)
+        static bool declareTagPaternity(string parentName, string childName)
         {
             return false;
         }

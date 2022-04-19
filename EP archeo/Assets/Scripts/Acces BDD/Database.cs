@@ -1,5 +1,9 @@
+using UnityEngine;
 using System.Data;
-using System.Data.SQLite;
+using Mono.Data.Sqlite;
+using System.IO;
+//using System.Data.SQLite;
+
 
 namespace bdd_ep
 {
@@ -11,23 +15,22 @@ namespace bdd_ep
         /// <summary>
         /// Path to the Database
         /// </summary>
-        private const string Cs =
-            @"URI=file:db_artefact_augmente.db";
+        private static string Cs = "URI=file:" + Application.persistentDataPath + "/db_artefact_augmente.db";
 
         /// <summary>
         /// The Database object
         /// </summary>
-        private static SQLiteConnection? _db;
+        private static SqliteConnection _db;
 
         /// <summary>
         /// Open the Database
         /// </summary>
         private static void open_database()
         {
-            Console.WriteLine("Opening Database...");
-            _db = new SQLiteConnection(Cs);
+            //Console.WriteLine("Opening Database...");
+            _db = new SqliteConnection(Cs);
             _db.Open();
-            Console.WriteLine("Database is open !");
+            //Console.WriteLine("Database is open !");
         }
 
         /// <summary>
@@ -35,9 +38,9 @@ namespace bdd_ep
         /// </summary>
         private static void close_database()
         {
-            Console.WriteLine("Closing Database...");
+            //Console.WriteLine("Closing Database...");
             _db?.Close();
-            Console.WriteLine("Database is closed");
+            //Console.WriteLine("Database is closed");
         }
 
         /// <summary>
@@ -57,12 +60,12 @@ namespace bdd_ep
         {
             if (check_database())
             {
-                Console.WriteLine("OK : Database contains 5 tables");
+                //Console.WriteLine("OK : Database contains 5 tables");
             }
             else
             {
-                Console.WriteLine("KO : Database doest not contain 5 tables");
-                Environment.Exit(-1);
+                //Console.WriteLine("KO : Database doest not contain 5 tables");
+                //Environment.Exit(-1);
             }
         }
 
@@ -76,8 +79,8 @@ namespace bdd_ep
             var dataTable = new DataTable();
 
             open_database();
-            Console.WriteLine("Executing ReadCommand : " + command);
-            using var cmd = new SQLiteCommand(command, _db);
+            //Console.WriteLine("Executing ReadCommand : " + command);
+            using var cmd = new SqliteCommand(command, _db);
             var rdr = cmd.ExecuteReader();
 
             // Write information into the datatable
@@ -95,9 +98,9 @@ namespace bdd_ep
         public static void DataWriter(string command)
         {
             open_database();
-            Console.WriteLine("Executing WriteCommand : " + command);
-            using var cmd = new SQLiteCommand(command, _db);
-            Console.WriteLine(cmd.ExecuteScalar());
+            //Console.WriteLine("Executing WriteCommand : " + command);
+            using var cmd = new SqliteCommand(command, _db);
+            //Console.WriteLine(cmd.ExecuteScalar());
             close_database();
         }
     }
