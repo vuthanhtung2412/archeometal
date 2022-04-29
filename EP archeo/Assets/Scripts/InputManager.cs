@@ -12,6 +12,8 @@ public class InputManager : MonoBehaviour
     public InputActionReference click = null;
     //public SteamVR_Action_Boolean select = null;
     // Start is called before the first frame update
+    public InputManager otherMenu;
+    private bool canShow = true;
 
     [Header("Objects")]
     public RadialMenu radialMenu = null;
@@ -33,13 +35,24 @@ public class InputManager : MonoBehaviour
     void ShowMenu(InputAction.CallbackContext context)
     {
         //Debug.Log("Touched"+ context.ReadValue<float>());
-        radialMenu.Show(true);
+        /*
+        if (!otherMenu.activeSelf)
+        {
+            radialMenu.Show(true);
+        }
+        */
+        if (canShow)
+        {
+            radialMenu.Show(true);
+            otherMenu.canShow = false;
+        }
     }
 
     void HideMenu(InputAction.CallbackContext context)
     {
         //Debug.Log("Touched" + context.ReadValue<float>());
         radialMenu.Show(false);
+        otherMenu.canShow = true;
     }
 
     void EmitPos(InputAction.CallbackContext context)
