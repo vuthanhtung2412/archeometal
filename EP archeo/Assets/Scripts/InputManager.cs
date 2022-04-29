@@ -64,6 +64,9 @@ public class InputManager : MonoBehaviour
     void ChooseMode(InputAction.CallbackContext context)
     {
         //Debug.Log("Clicked");
-        radialMenu.HightlightSection();
+        if (gameObject.activeSelf)
+        {
+            radialMenu.HightlightSection();
+        }
     }
 }
