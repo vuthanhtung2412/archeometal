@@ -7,20 +7,27 @@ public class SelectionHelper : MonoBehaviour
 {
 	
 	public GameObject attachedObject;
+	private Renderer rdr;
+	
+	public void Start() {
+		rdr = null;
+	}
 	
     public void changeVisibility(bool val) {
 		attachedObject.SetActive(val);
 	}
 	
 	public void changeTransparency(float val) {
-		Material[] materials = attachedObject.GetComponent<Renderer>().materials;
+		if (rdr == null)
+			rdr = attachedObject.GetComponent<Renderer>();
+		Material[] materials = rdr.materials;
         for (int i = 0 ; i < materials.Length ; i++)
         {
             Color colorFaded = materials[i].color;
             colorFaded.a = Mathf.Clamp(val, 0, 1);
             //Debug.Log(colorFaded.a);
-            attachedObject.GetComponent<Renderer>().materials[i].color = colorFaded;
-			attachedObject.GetComponent<Renderer>().materials[i].renderQueue=(int)UnityEngine.Rendering.RenderQueue.Transparent;
+            rdr.materials[i].color = colorFaded;
+			rdr.materials[i].renderQueue=(int)UnityEngine.Rendering.RenderQueue.Transparent;
             //Debug.Log(this.gameObject.GetComponent<Renderer>().materials[i].color);
         }
 	}
