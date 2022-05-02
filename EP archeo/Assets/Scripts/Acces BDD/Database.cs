@@ -103,5 +103,15 @@ namespace bdd_ep
             //Console.WriteLine(cmd.ExecuteScalar());
             close_database();
         }
+
+        /// <summary>
+        /// Double apostrophes and remove semi-columns in a string
+        /// </summary>
+        /// <param name="text">A string</param>
+        /// <returns>The string with double apostrophe and without semi-column</returns>
+        public static string DoubleApostropheAndRemoveSemiColumn(string text)
+        {
+            return text.Replace("'", "''").Replace(";", "");
+        }
     }
 }
