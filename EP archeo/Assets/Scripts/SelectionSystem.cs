@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+//using UnityEngine.UIElements;
 using bdd_ep;
 
 public class SelectionSystem : MonoBehaviour
@@ -35,6 +37,7 @@ public class SelectionSystem : MonoBehaviour
 		
 		if (o != null) {
 			newItem.GetComponent<SelectionHelper>().attachedObject = o.me;
+			newItem.GetComponentInChildren<Text>().text=o.id_excavation;
 		}
 	}
 }
