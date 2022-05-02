@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -21,7 +20,7 @@ public class OffsetGrabInteractable:XRGrabInteractable
 
     private Vector3 initialAttachLocalPos;
     private Quaternion initialAttachLocalRot;
-    public EventCentre EC;
+    private EventCentre EC;
     void Start()
     {
         // create attachment point

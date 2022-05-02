@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.UI;
 
 public class EventCentre : MonoBehaviour
@@ -15,7 +14,15 @@ public class EventCentre : MonoBehaviour
     public float scale ;
     public Vector3 initScale;
     public Slider sizeSlider;
-    public Text nameOfSelectedItem;
+    public GameObject canvas;
+    public TrackedPoseDriver track;
+
+    // info for obj
+    public Text n;
+    public Text id;
+    public Text descp;
+    public Image img;
+
 
     void Start()
     {
@@ -24,9 +31,6 @@ public class EventCentre : MonoBehaviour
         this.clippingPlane = GameObject.Find("Clipping Planes");
         this.initScale = StudyObj.transform.localScale;
         this.scale = 1.0f;
-        //Debug.Log(this.StudyObj.name);
-        //sizeSlider.onValueChanged.AddListener(delegate { ChangeScale(); });
-        this.nameOfSelectedItem.text = "Selected item : " + this.StudyObj.name;
     }
     // Update is called once per frame
     void Update()
@@ -65,6 +69,7 @@ public class EventCentre : MonoBehaviour
             this.clippingPlane.GetComponent<GlobalClippingManager>().planeNb = 0;
             this.clippingPlane.GetComponent<GlobalClippingManager>().cameraNb = 0;
         }
+        canvas.SetActive(!canvas.activeSelf);
     }
 
     public void MetadataPoints()
@@ -80,5 +85,28 @@ public class EventCentre : MonoBehaviour
     public void UpdateStudyObj(GameObject obj)
     {
         Debug.Log("From Event Centre" + obj.name);
+        Info info = obj.GetComponent<Info>();
+        if(info != null)
+        {
+            id.text = info.idObj.ToString();
+            foreach (MetaData m in info.metaDatas)
+            {
+                if (m.relativePositionX == 0 && m.relativePositionY == 0 && m.relativePositionZ == 0)
+                {
+                    n.text = m.name;
+                    descp.text = m.desp;
+                    // Update foto
+                    img.sprite = Resources.Load<Sprite>(m.photoURL);
+                    img.type = Image.Type.Simple;
+                    img.preserveAspect = true;
+                    break;
+                }
+            }
+        } 
+    }
+
+    public void ObserveMetadataPoint()
+    {
+        Debug.Log("meta data point mode");
     }
 }
