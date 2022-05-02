@@ -224,13 +224,27 @@ namespace bdd_ep
         /// <returns>List of all objects id associated to the tag</returns>
         public static List<int> GetObjectsAssociatedWithTag(int idTag)
         {
-            var queryResult = Database.DataReader($"SELECT id_obj FROM tag_map WHERE id_tag = {idTag}");
+            var queryResult = Database.DataReader($"SELECT id_obj FROM tag_map WHERE id_tag = {idTag};");
             var listToReturn = new List<int>();
             foreach (DataRow row in queryResult.Rows)
             {
                 listToReturn.Add(int.Parse(row["id_obj"].ToString()!));
             }
             return listToReturn;
+        }
+
+        /// <summary>
+        /// Get a id corresponding to a tag
+        /// </summary>
+        /// <param name="tagName">The name of the tag</param>
+        /// <param name="parentTag">The parent of the tag (may be empty)</param>
+        /// <returns>The id of the tag</returns>
+        public static int GetIdTag(string tagName, string parentTag)
+        {
+            var queryResult = Database.DataReader($"SELECT id_tag FROM tag WHERE tag_name = '{tagName}' AND parent_tag = '{parentTag}';");
+            if (queryResult.Rows.Count != 1)
+                return -1;
+            return int.Parse(queryResult.Rows[0]["id_tag"].ToString()!);
         }
     }
 }
