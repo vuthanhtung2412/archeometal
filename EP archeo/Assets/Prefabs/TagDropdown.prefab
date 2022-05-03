@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 2279204176096389307}
   - component: {fileID: 5706699196382091305}
   - component: {fileID: 2092059024369108403}
+  - component: {fileID: 8459270478171054707}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -252,6 +253,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &8459270478171054707
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4374325714083187724}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 28efbfc4b756a3a43b4010a5303badd2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4589886921607346724
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,6 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cfa5a6116f64984fbe85aafea83d257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationDuration: 0.3
   toggleList: []
   childs: []
   oldStatuses: 
