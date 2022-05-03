@@ -1,12 +1,12 @@
 using System;
 
 [Serializable]
-public struct Tag
+public struct TagTung
 {
     public string parentName;
     public string name;
 
-    public Tag(string pn, string n)
+    public TagTung(string pn, string n)
     {
         parentName = pn;
         name = n; 

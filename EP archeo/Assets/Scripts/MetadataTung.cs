@@ -1,7 +1,7 @@
 using System;
 
 [Serializable]
-public struct MetaData
+public struct MetadataTung
 {
     public string name;
     public int idObj;
@@ -13,7 +13,7 @@ public struct MetaData
     public string desp; // description 
     public string photoURL;
 
-    public MetaData(string n, int id, string tn,string uri, float x, float y, float z, string desp, string photURL)
+    public MetadataTung(string n, int id, string tn,string uri, float x, float y, float z, string desp, string photURL)
     {
         name = n;
         idObj = id;

@@ -8,7 +8,9 @@ public class MetaPointInteractable : XRSimpleInteractable
     private MeshRenderer r;
     private EventCentre EC;
 
-    
+    //Metadata
+    public MetadataTung data;
+
     void Start()
     {
         red = Resources.Load<Material>("Materials/red");
@@ -16,6 +18,7 @@ public class MetaPointInteractable : XRSimpleInteractable
         r = GetComponent<MeshRenderer>();
         EC = GameObject.Find("EventCentre").GetComponent<EventCentre>();
         r.material = red;
+        base.interactionManager = GameObject.Find("XR Interaction Manager").GetComponent<XRInteractionManager>();
     }
     protected override void OnHoverEntered(HoverEnterEventArgs args)
     {
@@ -31,5 +34,6 @@ public class MetaPointInteractable : XRSimpleInteractable
     {
         base.OnSelectEntered(args);
         Debug.Log("Metadata point displayed");
+        this.EC.displayMetadataPoint(data);
     }
 }
