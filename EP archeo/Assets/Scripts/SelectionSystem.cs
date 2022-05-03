@@ -62,6 +62,8 @@ public class SelectionSystem : MonoBehaviour
 	// We use the fact that, in C#, lists keeps their order like a stack
 	private int currentLevel=0;
 	private void addFromTag(TagList tag) {
+		// Store the current index in the orderedItems list for later
+		int currentI = orderedItems.Count;
 		// Add the dropdown at the current level
 		orderedItems.Add(buildDropDown(tag.tag));
 		currentLevel++;
@@ -73,6 +75,21 @@ public class SelectionSystem : MonoBehaviour
 			orderedItems.Add(buildItem(obj));
 		// Then we decrease back the current level
 		currentLevel--;
+		
+		// Now we set the Toggle[] array by looking at the list again
+		int endList = orderedItems.Count;
+		List<Toggle> tglList = new List<Toggle>();
+		List<GameObject> goList = new List<GameObject>();
+		for (int i = currentI; i < endList; i++) {
+			tglList.Add(orderedItems[i].listEntry.GetComponentInChildren<Toggle>());
+			goList.Add(orderedItems[i].listEntry);
+		}
+		
+		// And we set it in the dropdown helper
+		DropdownHelper dH = orderedItems[currentI].listEntry.GetComponent<DropdownHelper>();
+		dH.toggleList = tglList.ToArray();
+		dH.childs = goList.ToArray(); 
+		dH.oldStatuses = new bool[goList.Count];
 	}
 	
 	// Build dropdowns
@@ -100,8 +117,10 @@ public class SelectionSystem : MonoBehaviour
 	private void updateList() {
 		int i = 0;
 		foreach (ItemElement item in orderedItems) {
-			item.listEntry.GetComponent<RectTransform>().localPosition = new Vector3((float)item.level * h_padding + originY, (float)i * v_padding + originX, 0);
-			i++;
+			if (item.listEntry.activeInHierarchy) {
+				item.listEntry.GetComponent<RectTransform>().localPosition = new Vector3((float)item.level * h_padding + originY, (float)i * v_padding + originX, 0);
+				i++;
+			}
 		}
 	}
 	

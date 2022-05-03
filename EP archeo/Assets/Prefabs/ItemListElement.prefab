@@ -588,7 +588,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachedObject: {fileID: 0}
-  toggle: {fileID: 1767216492040810725}
 --- !u!1 &5294592299565905730
 GameObject:
   m_ObjectHideFlags: 0
