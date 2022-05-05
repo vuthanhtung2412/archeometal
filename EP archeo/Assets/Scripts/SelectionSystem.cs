@@ -11,13 +11,17 @@ public class SelectionSystem : MonoBehaviour
 	public GameObject itemPrefab;
 	public GameObject dropdownPrefab;
 	
+	private ArcheoLoader archeoLoader;
+	
 	public float originX;
 	public float originY;
 	public float h_padding;
 	public float v_padding;
 	
+	private RectTransform contentRect;
+	
 	// Used to store the tags tree and its associated objects. Generated from the database
-	private class TagList {
+	public class TagList {
 		public string tag;
 		public List<TagList> childs;
 		public List<ObjectArcheo> objects;
@@ -122,33 +126,21 @@ public class SelectionSystem : MonoBehaviour
 				i++;
 			}
 		}
+		// Set the size of the Content RectTransform to have proper scrolling
+		contentRect.sizeDelta = new Vector2(0f, Mathf.Abs((float)(i+1) * v_padding));
 	}
 	
     // Start is called before the first frame update
     void Start()
     {
-		tags = new List<TagList>();
+		contentRect = listContent.GetComponent<RectTransform>();
 		orderedItems = new List<ItemElement>();
-		TagList tA = new TagList("A");
-		TagList tA1 = new TagList("A1");
-		TagList tA2 = new TagList("A2");
-		TagList tB = new TagList("B");
+
+		archeoLoader = GetComponent<ArcheoLoader>();
+		tags = new List<TagList>(archeoLoader.loadTags());
 		
-		ObjectArcheo oA = new ObjectArcheo(2, "A", "A", new Vector3(2,2,0), Vector3.zero, 1, 1, 1, "Racine de A", 0, "");
-		ObjectArcheo oA1 = new ObjectArcheo(3, "A1", "A1", new Vector3(2,2.7f,0), Vector3.zero, 1, 1, 1, "1er enfant de A", 0, "");
-		ObjectArcheo oA2 = new ObjectArcheo(4, "A2", "A2", new Vector3(3,2,0), Vector3.zero, 1, 1, 1, "2eme de A", 0, "");
-		ObjectArcheo oB = new ObjectArcheo(5, "B", "B", new Vector3(3,2.7f,0), Vector3.zero, 1, 1, 1, "Une autre racine", 0, "");
-		
-		tA.childs.Add(tA1);
-		tA.childs.Add(tA2);
-		tA.objects.Add(oA);
-		tA1.objects.Add(oA1);
-		tA2.objects.Add(oA2);
-		tB.objects.Add(oB);
-		
-		
-		addFromTag(tA);
-		addFromTag(tB);
+		foreach (TagList tag in tags)
+			addFromTag(tag);
 		
 		updateList();
 		
@@ -174,5 +166,18 @@ public class SelectionSystem : MonoBehaviour
 			newItem.GetComponentInChildren<Text>().text=o.id_excavation;
 		}
 	}
+	
+}
+
+public interface ArcheoLoader {
+	/*
+	 * Interface used to initialize the list content
+	*/
+	
+	// Give all the existing tags
+	SelectionSystem.TagList[] loadTags();
+	
+	// Give all the existing ObjectArcheo
+	ObjectArcheo[] loadObjectArcheo();
 	
 }
