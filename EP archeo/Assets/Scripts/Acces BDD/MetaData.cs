@@ -1,54 +1,56 @@
 using System.Data;
+using System.Collections.Generic;
+
 
 namespace bdd_ep
 {
 
     /// <summary>
-    /// Gestion des métadonnées décrivant un objet archéologique
+    /// Managa metadata
     /// </summary>
     public class MetaData
     {
-        public string name;
-        public int idObj;
-        public string typeName;
-        public string uri;
-        public float relativePositionX;
-        public float relativePositionY;
-        public float relativePositionZ;
+        public string _name;
+        public int _idObj;
+        public string _typeName;
+        public string _uri;
+        public float _relativePositionX;
+        public float _relativePositionY;
+        public float _relativePositionZ;
 
         /// <summary>
-        /// Création d'une métadonnée
+        /// Create new metadata
         /// </summary>
-        /// <param name="name">Le nom de la métadonnée</param>
-        /// <param name="idObj">L'identifiant de l'objet associé à la métadonnée</param>
-        /// <param name="typeName">Type de la métadonnée</param>
-        /// <param name="uri">Chemin vers la métadonnée</param>
-        /// <param name="relativePositionX">Position relative X de la métadonnée (par rapport au centre de gravité de l'objet)</param>
-        /// <param name="relativePositionY">Position relative X de la métadonnée (par rapport au centre de gravité de l'objet)</param>
-        /// <param name="relativePositionZ">Position relative X de la métadonnée (par rapport au centre de gravité de l'objet)</param>
-        public MetaData(string name, int idObj, string typeName, string uri, float relativePositionX,
+        /// <param name="name">Metadata name</param>
+        /// <param name="idObj">Id of the object associate to the metadata</param>
+        /// <param name="typeName">Metadata type</param>
+        /// <param name="uri">Path to metadata</param>
+        /// <param name="relativePositionX">Metadata relative position X (with regard to object center of gravity)</param>
+        /// <param name="relativePositionY">Metadata relative position Y (with regard to object center of gravity)</param>
+        /// <param name="relativePositionZ">Metadata relative position Z (with regard to object center of gravity)</param>
+        private MetaData(string name, int idObj, string typeName, string uri, float relativePositionX,
             float relativePositionY, float relativePositionZ)
         {
-            this.name = name;
-            this.idObj = idObj;
-            this.typeName = typeName;
-            this.uri = uri;
-            this.relativePositionX = relativePositionX;
-            this.relativePositionY = relativePositionY;
-            this.relativePositionZ = relativePositionZ;
+            this._name = name;
+            this._idObj = idObj;
+            this._typeName = typeName;
+            this._uri = uri;
+            this._relativePositionX = relativePositionX;
+            this._relativePositionY = relativePositionY;
+            this._relativePositionZ = relativePositionZ;
         }
 
         /// <summary>
-        /// Créer une nouvelle métadonnée
+        /// Create new metadata
         /// </summary>
-        /// <param name="name">Le nom de la métadonnée</param>
-        /// <param name="idObj">L'identifiant de l'objet associé à la métadonnée</param>
-        /// <param name="typeName">Type de la métadonnée</param>
-        /// <param name="uri">Chemin vers la métadonnée</param>
-        /// <param name="relativePositionX">Position relative X de la métadonnée (par rapport au centre de gravité de l'objet)</param>
-        /// <param name="relativePositionY">Position relative Y de la métadonnée (par rapport au centre de gravité de l'objet)</param>
-        /// <param name="relativePositionZ">Position relative Z de la métadonnée (par rapport au centre de gravité de l'objet)</param>
-        /// <returns>La nouvelle métadonnée crée</returns>
+        /// <param name="name">Metadata name</param>
+        /// <param name="idObj">Id of the object associate to the metadata</param>
+        /// <param name="typeName">Metadata type</param>
+        /// <param name="uri">Path to metadata</param>
+        /// <param name="relativePositionX">Metadata relative position X (with regard to object center of gravity)</param>
+        /// <param name="relativePositionY">Metadata relative position Y (with regard to object center of gravity)</param>
+        /// <param name="relativePositionZ">Metadata relative position Z (with regard to object center of gravity)</param>
+        /// <returns>New metadata created</returns>
         public static MetaData CreateNewMetaData(string name, int idObj, string typeName, string uri,
             float relativePositionX,
             float relativePositionY, float relativePositionZ)
@@ -56,132 +58,118 @@ namespace bdd_ep
             var metaData = new MetaData(name, idObj, typeName, uri, relativePositionX, relativePositionY,
                 relativePositionZ);
             Database.DataWriter(
-                $"INSERT INTO metadata (name, id_obj, type_name, uri, relative_position_x, relative_position_y, relative_position_z) VALUES ('{metaData.name}',{metaData.idObj},'{metaData.typeName}','{metaData.uri}',{metaData.relativePositionX},{metaData.relativePositionY},{metaData.relativePositionZ});");
+                $"INSERT INTO metadata (name, id_obj, type_name, uri, relative_position_x, relative_position_y, relative_position_z) VALUES ('{metaData._name}',{metaData._idObj},'{metaData._typeName}','{metaData._uri}',{metaData._relativePositionX},{metaData._relativePositionY},{metaData._relativePositionZ});");
             return metaData;
         }
 
         /// <summary>
-        /// Changer la position relative de la métadonnée
+        /// Change metadata relative position
         /// </summary>
-        /// <param name="name">Le nom de la métadonnée (clé dans la base de données)</param>
-        /// <param name="idObj">L'identifiant de l'objet associé à la métadonnée (clé dans la base de données)</param>
-        /// <param name="newRelativePositionX">Nouvelle position relative X de la métadonnée (par rapport au centre de gravité de l'objet)</param>
-        /// <param name="newRelativePositionY">Nouvelle position relative Y de la métadonnée (par rapport au centre de gravité de l'objet)</param>
-        /// <param name="newRelativePositionZ">Nouvelle position relative Z de la métadonnée (par rapport au centre de gravité de l'objet)</param>
-        /// <returns>La métadonnée dont les champs ont été modifiés. Retourne NULL si un problème est survenu.</returns>
-        public static MetaData ChangePosition(string name, int idObj, float newRelativePositionX,
+        /// <param name="name">Metadata name (Key in the database)</param>
+        /// <param name="idObj">Id of the object associate to the metadata (Key in the database)</param>
+        /// <param name="newRelativePositionX">New metadata relative position X (with regard to object center of gravity)</param>
+        /// <param name="newRelativePositionY">New metadata relative position Y (with regard to object center of gravity)</param>
+        /// <param name="newRelativePositionZ">New metadata relative position Z (with regard to object center of gravity)</param>
+        /// <returns>Metadata updated. Return null if something went wrong.</returns>
+        #nullable enable
+        public static MetaData? ChangePosition(string name, int idObj, float newRelativePositionX,
             float newRelativePositionY,
             float newRelativePositionZ)
         {
             var data = Database.DataReader($"SELECT * FROM metadata WHERE name = '{name}' AND id_obj = '{idObj}'");
-            // Si on n'a pas obtenu un unique résultat : une erreur est survenue
+            // If we do not have a signe result : a problem occured
             if (data.Rows.Count != 1)
             {
                 return null;
             }
 
-            // Création d'un objet avec le résultat de la requête à la base de données
-            var metadata = new MetaData((string)(data.Rows[0]["name"]), (int)(data.Rows[0]["id_obj"]),
-                (string)(data.Rows[0]["type_name"]),
-                (string)(data.Rows[0]["uri"]), (float)((double)data.Rows[0]["relative_position_x"]),
-                (float)((double)data.Rows[0]["relative_position_y"]),
-                (float)((double)data.Rows[0]["relative_position_z"]));
-            // Changement des positions relatives
-            metadata.relativePositionX = newRelativePositionX;
-            metadata.relativePositionY = newRelativePositionY;
-            metadata.relativePositionZ = newRelativePositionZ;
+            var metadata = new MetaData((string) (data.Rows[0]["name"]), (int)(data.Rows[0]["id_obj"]),
+                (string) (data.Rows[0]["type_name"]),
+                (string) (data.Rows[0]["uri"]), (float) (double)(data.Rows[0]["relative_position_x"]),
+                (float) (double)(data.Rows[0]["relative_position_y"]),
+                (float) (double)(data.Rows[0]["relative_position_z"]));
+            // Change relative positions
+            metadata._relativePositionX = newRelativePositionX;
+            metadata._relativePositionY = newRelativePositionY;
+            metadata._relativePositionZ = newRelativePositionZ;
 
-            //Mise à jour de la métadonnée
+            // Update in database
             Database.DataWriter(
-                $"UPDATE metadata SET relative_position_x = '{metadata.relativePositionX}', relative_position_y = '{metadata.relativePositionY}', relative_position_z = '{metadata.relativePositionZ}' WHERE name = '{metadata.name}' AND id_obj = '{metadata.idObj}';");
+                $"UPDATE metadata SET relative_position_x = '{metadata._relativePositionX}', relative_position_y = '{metadata._relativePositionY}', relative_position_z = '{metadata._relativePositionZ}' WHERE name = '{metadata._name}' AND id_obj = '{metadata._idObj}';");
             return metadata;
         }
 
         /// <summary>
-        /// Changer le chemin d'accès à la métadonnée
+        /// Change path to metadata
         /// </summary>
-        /// <param name="name">Le nom de la métadonnée (clé dans la base de données)</param>
-        /// <param name="idObj">L'identifiant de l'objet associé à la métadonnée (clé dans la base de données)</param>
-        /// <param name="newPath">Nouveau chemin d'accès à la métadonnée</param>
-        /// <returns>La métadonnée dont le chemin a été modifié</returns>
-        public static MetaData ChangePath(string name, int idObj, string newPath)
+        /// <param name="name">Metadata name (Key in the database)</param>
+        /// <param name="idObj">Id of the object associate to the metadata (Key in the database)</param>
+        /// <param name="newPath">New path</param>
+        /// <returns>Metadata with the new path. Return null if something went wrong.</returns>
+        public static MetaData? ChangePath(string name, int idObj, string newPath)
         {
             var data = Database.DataReader($"SELECT * FROM metadata WHERE name = '{name}' AND id_obj = '{idObj}'");
-            // Si on n'a pas obtenu un unique résultat : une erreur est survenue
+            // If we do not have a signe result : a problem occured
             if (data.Rows.Count != 1)
             {
                 return null;
             }
 
-            // Création d'un objet avec le résultat de la requête à la base de données
-            var metadata = new MetaData((string)(data.Rows[0]["name"]), ((int)data.Rows[0]["id_obj"]),
-                (string)(data.Rows[0]["type_name"]),
-                (string)(data.Rows[0]["uri"]), (float)((double)data.Rows[0]["relative_position_x"]),
-                (float)((double)data.Rows[0]["relative_position_y"]),
-                (float)((double)data.Rows[0]["relative_position_z"]));
+            var metadata = new MetaData((string) (data.Rows[0]["name"]), (int)(data.Rows[0]["id_obj"]),
+                (string) (data.Rows[0]["type_name"]),
+                (string) (data.Rows[0]["uri"]), (float) (double)(data.Rows[0]["relative_position_x"]),
+                (float) (double)(data.Rows[0]["relative_position_y"]),
+                (float) (double)(data.Rows[0]["relative_position_z"]));
 
-            //Changement du chemin d'accès
-            metadata.uri = newPath;
+            // Change path
+            metadata._uri = newPath;
 
-            // Mise à jour de la métadonnée
+            // Update metadata
             Database.DataWriter(
-                $"UPDATE metadata SET uri = '{metadata.uri}' WHERE name = '{metadata.name}' AND id_obj = '{metadata.idObj}';");
+                $"UPDATE metadata SET uri = '{metadata._uri}' WHERE name = '{metadata._name}' AND id_obj = '{metadata._idObj}';");
 
             return metadata;
         }
 
         /// <summary>
-        /// Changer le nom de la métadonnée
+        /// Change the name of a metadata
         /// </summary>
-        /// <param name="name">Le nom de la métadonnée (clé dans la base de données)</param>
-        /// <param name="idObj">L'identifiant de l'objet associé à la métadonnée (clé dans la base de données)</param>
-        /// <param name="newName">Nouveau nom de la métadonnée (attention, ce nom deviendra clé)</param>
-        /// <returns>La métadonnée dont le nom a été modifié</returns>
-        public static MetaData ChangeName(string name, int idObj, string newName)
+        /// <param name="name">Metadata name (Key in the database)</param>
+        /// <param name="idObj">Id of the object associate to the metadata (Key in the database)</param>
+        /// <param name="newName">New name (caution, this name will become key)</param>
+        /// <returns>Metadata with the new name. Return null if something went wrong.</returns>
+        public static MetaData? ChangeName(string name, int idObj, string newName)
         {
             var data = Database.DataReader($"SELECT * FROM metadata WHERE name = '{name}' AND id_obj = '{idObj}'");
-            // Si on n'a pas obtenu un unique résultat : une erreur est survenue
+            // If we do not have a signe result : a problem occured
             if (data.Rows.Count != 1)
             {
                 return null;
             }
 
-            // Création d'un objet avec le résultat de la requête à la base de données
-            var metadata = new MetaData((string)(data.Rows[0]["name"]), (int)(data.Rows[0]["id_obj"]),
-                (string)(data.Rows[0]["type_name"]),
-                (string)(data.Rows[0]["uri"]), (float)((double)data.Rows[0]["relative_position_x"]),
-                (float)((double)data.Rows[0]["relative_position_y"]),
-                (float)((double)data.Rows[0]["relative_position_z"]));
+            var metadata = new MetaData((string) (data.Rows[0]["name"]), (int)(data.Rows[0]["id_obj"]),
+                (string) (data.Rows[0]["type_name"]),
+                (string) (data.Rows[0]["uri"]), (float) (int)(data.Rows[0]["relative_position_x"]),
+                (float) (int)(data.Rows[0]["relative_position_y"]),
+                (float) (int)(data.Rows[0]["relative_position_z"]));
 
-            //Changement du chemin d'accès
-            var oldName = metadata.name;
-            metadata.name = newName;
+            // Change name
+            var oldName = metadata._name;
+            metadata._name = newName;
 
-            // Mise à jour de la métadonnée
+            // Update of metadata
             Database.DataWriter(
-                $"UPDATE metadata SET name = '{metadata.name}' WHERE name = '{oldName}' AND id_obj = '{metadata.idObj}';");
+                $"UPDATE metadata SET name = '{metadata._name}' WHERE name = '{oldName}' AND id_obj = '{metadata._idObj}';");
 
             return metadata;
         }
 
         /// <summary>
-        /// Importer un ensemble de types de métadonnées à partir d'un fichier CSV
+        /// Add a new metadata type
         /// </summary>
-        /// <param name="pathToCSV">Chemin vers le fichier CSV</param>
-        /// <returns>True si et seulement si tout s'est déroulé correctement</returns>
-        public static bool ImportCSVToDataBase(string pathToCSV)
+        /// <param name="typeName">Name of the new metadata type</param>
+        public static void AddMetaDataType(string typeName)
         {
-            // TODO
-            return false;
-        }
-
-        /// <summary>
-        /// Ajouter un nouveau type de métadonnées
-        /// </summary>
-        /// <param name="typeName">Nom du type de la métadonnée</param>
-        public static void addMetaDataType(string typeName)
-        {
-            // Insertion uniquement si l'enregistrement n'est pas déjà présent dans la table
             if ((Database.DataReader($"SELECT * FROM metadata_type WHERE type_name = '{typeName}';").Rows.Count) == 0)
             {
                 Database.DataWriter($"INSERT INTO metadata_type (type_name) VALUES ('{typeName}');");
@@ -189,19 +177,40 @@ namespace bdd_ep
         }
 
         /// <summary>
-        /// Récupération de tous les types de métadonnées
+        /// Get all metadata types
         /// </summary>
-        /// <returns>Tous les types de métadonnées présents dans la base de données</returns>
-        public static string[] getAllMetaDataTypes()
+        /// <returns>All metadata types in the database</returns>
+        public static string[] GetAllMetaDataTypes()
         {
             var allMetaDataDataTable = Database.DataReader("SELECT * FROM metadata_type;");
-            var allMetaDataArray = new string[allMetaDataDataTable.Rows.Count];
-
-            // Insertion de chaque type dans un tableau
-            for (int i = 0 ; i<allMetaDataArray.Length ; i++){
-                allMetaDataArray[i] = allMetaDataDataTable.Rows[i]["type_name"].ToString();
+            var allMetaDataList = new List<string>();
+            // Insert each type in a list
+            foreach (DataRow type in allMetaDataDataTable.Rows)
+            {
+                var typeInString = type["type_name"].ToString();
+                // Insert in the list only if string is not null
+                if (typeInString != null)
+                    allMetaDataList.Add(typeInString);
             }
-            return allMetaDataArray;
+
+            return allMetaDataList.ToArray();
+        }
+
+        /// <summary>
+        /// Get the path to the metadata
+        /// </summary>
+        /// <param name="idObj">Integer identifying the object</param>
+        /// <returns>Path to the metadata</returns>
+        public static string GetPathToMetaData(int idObj)
+        {
+            var uriInDataTable = Database.DataReader($"SELECT uri FROM metadata WHERE id_obj = {idObj};");
+            foreach (DataRow row in uriInDataTable.Rows)
+            {
+                var uri = row["uri"].ToString();
+                return uri ?? "";
+            }
+
+            return "";
         }
     }
 }
