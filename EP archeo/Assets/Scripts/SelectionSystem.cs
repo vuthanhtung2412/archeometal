@@ -65,18 +65,21 @@ public class SelectionSystem : MonoBehaviour
 	*/
 	// We use the fact that, in C#, lists keeps their order like a stack
 	private int currentLevel=0;
-	private void addFromTag(TagList tag) {
+	private void addFromTag(TagList tag, ItemElement parent) {
 		// Store the current index in the orderedItems list for later
 		int currentI = orderedItems.Count;
 		// Add the dropdown at the current level
-		orderedItems.Add(buildDropDown(tag.tag));
+		DropdownHelper parentDropdown = (parent==null)? null: parent.listEntry.GetComponent<DropdownHelper>();
+		ItemElement me = buildDropDown(tag.tag,parentDropdown);
+		DropdownHelper meDropdown = me.listEntry.GetComponent<DropdownHelper>();
+		orderedItems.Add(me);
 		currentLevel++;
 		// We first add child levels
 		foreach (TagList child in tag.childs)
-			addFromTag(child);
+			addFromTag(child, me);
 		// Then archeo objects
 		foreach (ObjectArcheo obj in tag.objects)
-			orderedItems.Add(buildItem(obj));
+			orderedItems.Add(buildItem(obj,meDropdown));
 		// Then we decrease back the current level
 		currentLevel--;
 		
@@ -84,7 +87,7 @@ public class SelectionSystem : MonoBehaviour
 		int endList = orderedItems.Count;
 		List<Toggle> tglList = new List<Toggle>();
 		List<GameObject> goList = new List<GameObject>();
-		for (int i = currentI; i < endList; i++) {
+		for (int i = currentI+1; i < endList; i++) { // currentI + 1 so we don't add the parent to the child list
 			tglList.Add(orderedItems[i].listEntry.GetComponentInChildren<Toggle>());
 			goList.Add(orderedItems[i].listEntry);
 		}
@@ -97,23 +100,25 @@ public class SelectionSystem : MonoBehaviour
 	}
 	
 	// Build dropdowns
-	private ItemElement buildDropDown(string name) {
+	private ItemElement buildDropDown(string name, DropdownHelper parent) {
 		ItemElement ie = new ItemElement(
 			currentLevel,
 			Instantiate(dropdownPrefab, listContent.GetComponent<Transform>(), false),
 			null);
 		ie.listEntry.GetComponentInChildren<Text>().text = name;
+		ie.listEntry.GetComponent<DropdownHelper>().parent = parent;
 		return ie;
 	}
 	
 	// Build item in a list
-	private ItemElement buildItem(ObjectArcheo obj) {
+	private ItemElement buildItem(ObjectArcheo obj, DropdownHelper parent) {
 		ItemElement ie = new ItemElement(
 			currentLevel,
 			Instantiate(itemPrefab, listContent.GetComponent<Transform>(), false),
 			obj);
 		ie.listEntry.GetComponentInChildren<Text>().text=obj.id_excavation;
 		ie.listEntry.GetComponent<SelectionHelper>().attachedObject = obj.me;
+		ie.listEntry.GetComponent<SelectionHelper>().parent = parent;
 		return ie;
 	}
 	
@@ -140,7 +145,7 @@ public class SelectionSystem : MonoBehaviour
 		tags = new List<TagList>(archeoLoader.loadTags());
 		
 		foreach (TagList tag in tags)
-			addFromTag(tag);
+			addFromTag(tag,null);
 		
 		updateList();
 		

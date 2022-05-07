@@ -7,6 +7,7 @@ public class SelectionHelper : MonoBehaviour
 {
 	
 	public GameObject attachedObject;
+	public DropdownHelper parent;
 	private Renderer rdr;
 	
 	public void Start() {
@@ -15,6 +16,8 @@ public class SelectionHelper : MonoBehaviour
 	
     public void changeVisibility(bool val) {
 		attachedObject.SetActive(val);
+		if (parent != null)
+			parent.updateStatus();
 	}
 	
 	public void changeTransparency(float val) {
