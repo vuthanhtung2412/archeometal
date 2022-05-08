@@ -14,6 +14,8 @@ public class DropdownHelper : MonoBehaviour
 	
 	private bool isEnabled = true;
 	
+	public SelectionSystem selectionSystem;
+	
 	
 	private void applyAlpha(Image i, float alpha) {
 		// We can't simply do i.color.a=alpha; beacause C#
@@ -60,6 +62,7 @@ public class DropdownHelper : MonoBehaviour
 				anim.CrossFade("Base Layer.DropdownDown", animationDuration);
 			}
 		}
+		selectionSystem.updateList();
 		isEnabled = !isEnabled;
 	}
 	

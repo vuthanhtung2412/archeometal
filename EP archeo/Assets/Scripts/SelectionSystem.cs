@@ -107,6 +107,7 @@ public class SelectionSystem : MonoBehaviour
 			null);
 		ie.listEntry.GetComponentInChildren<Text>().text = name;
 		ie.listEntry.GetComponent<DropdownHelper>().parent = parent;
+		ie.listEntry.GetComponent<DropdownHelper>().selectionSystem = this;
 		return ie;
 	}
 	
@@ -123,7 +124,7 @@ public class SelectionSystem : MonoBehaviour
 	}
 	
 	// Resets the position of each item entry in the list
-	private void updateList() {
+	public void updateList() {
 		int i = 0;
 		foreach (ItemElement item in orderedItems) {
 			if (item.listEntry.activeInHierarchy) {
@@ -133,6 +134,7 @@ public class SelectionSystem : MonoBehaviour
 		}
 		// Set the size of the Content RectTransform to have proper scrolling
 		contentRect.sizeDelta = new Vector2(0f, Mathf.Abs((float)(i+1) * v_padding));
+		//contentRect.ForceUpdateRectTransforms();
 	}
 	
     // Start is called before the first frame update
@@ -146,12 +148,8 @@ public class SelectionSystem : MonoBehaviour
 		
 		foreach (TagList tag in tags)
 			addFromTag(tag,null);
-		
-		TagList t = new TagList("Test");
-		t.objects.Add(new ObjectArcheo(42, "Test", "DualMat", new Vector3(1.98f, 0.82f, 1.93f), new Vector3(0f, 44.37f, 0f), 1,1,1, "jygujy", 0,""));
-		addFromTag(t,null);
+
 		updateList();
-		
 		//ObjectArcheo o = new ObjectArcheo(1, "Test", "Cube_test", new Vector3(0,0,0), Vector3.zero, 1,1,1, "Description", 0,"");
 		//add(o);
 
@@ -161,7 +159,9 @@ public class SelectionSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		updateList();
+		// Uncomment to update at each frame (for example to set up the positions in the editor while running)
+		// However, it is normally not necessary since the updateList() is called when needed
+		// updateList();
     }
 	
 	void add(ObjectArcheo o) {
