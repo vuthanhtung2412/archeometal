@@ -64,3 +64,4 @@ public class TransparencyHelper : MonoBehaviour
 		return mat;
 	}
 	
+}

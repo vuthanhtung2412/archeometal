@@ -147,6 +147,9 @@ public class SelectionSystem : MonoBehaviour
 		foreach (TagList tag in tags)
 			addFromTag(tag,null);
 		
+		TagList t = new TagList("Test");
+		t.objects.Add(new ObjectArcheo(42, "Test", "DualMat", new Vector3(1.98f, 0.82f, 1.93f), new Vector3(0f, 44.37f, 0f), 1,1,1, "jygujy", 0,""));
+		addFromTag(t,null);
 		updateList();
 		
 		//ObjectArcheo o = new ObjectArcheo(1, "Test", "Cube_test", new Vector3(0,0,0), Vector3.zero, 1,1,1, "Description", 0,"");
@@ -181,8 +184,5 @@ public interface ArcheoLoader {
 	
 	// Give all the existing tags
 	SelectionSystem.TagList[] loadTags();
-	
-	// Give all the existing ObjectArcheo
-	ObjectArcheo[] loadObjectArcheo();
 	
 }

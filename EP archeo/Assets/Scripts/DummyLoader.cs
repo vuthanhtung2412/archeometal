@@ -8,6 +8,7 @@ public class DummyLoader : MonoBehaviour, ArcheoLoader
 {
     private List<TagList> internalTagList;
 	private ObjectArcheo[] internalObjList;
+	public ArcheoBuilder archeoBuilder;
 	
 	private bool created = false;
 	
@@ -16,6 +17,7 @@ public class DummyLoader : MonoBehaviour, ArcheoLoader
 		go.GetComponent<MeshRenderer>().material.color = color;
 		go.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
 		go.name = name;
+		archeoBuilder.init(go);
 	}
 	
 	private ObjectArcheo QuickObjectArcheoBuilder(int id, string name, float x, float y, float z) {
@@ -61,11 +63,6 @@ public class DummyLoader : MonoBehaviour, ArcheoLoader
 	public TagList[] loadTags(){
 		init();
 		return internalTagList.ToArray();
-	}
-	
-	public ObjectArcheo[] loadObjectArcheo() {
-		init();
-		return internalObjList;
 	}
 	
 }
