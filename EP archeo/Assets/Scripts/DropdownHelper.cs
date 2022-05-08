@@ -46,8 +46,10 @@ public class DropdownHelper : MonoBehaviour
 	
 	void Start() {
 		anim = GetComponentInChildren<Animator>();
+		anim.keepAnimatorControllerStateOnDisable = true;
 		applyAlpha(partial, 0f);
 	}
+
 	
 	public void onClick() {
 		if (isEnabled) {
