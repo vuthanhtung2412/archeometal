@@ -92,6 +92,9 @@ public class EventCentre : MonoBehaviour
         if (studyObj == null || !studyObj.Equals(obj))
         {
             Debug.Log("in");
+            // Reutrn the inital scale
+            if (studyObj != null)
+                this.studyObj.transform.localScale = this.initScale;
             // hide metadata point of previously selected obj
             if (dataPoints != null)
                 this.dataPoints.SetActive(false);

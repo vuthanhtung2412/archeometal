@@ -4,7 +4,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class MetaPointInteractable : XRSimpleInteractable
 {
     private Material red;
-    private Material white;
+    private Material glowingOrange;
+    private Material glowingWhite;
     private MeshRenderer r;
     private EventCentre EC;
 
@@ -14,7 +15,8 @@ public class MetaPointInteractable : XRSimpleInteractable
     void Start()
     {
         red = Resources.Load<Material>("Materials/red");
-        white = Resources.Load<Material>("Materials/white");
+        glowingOrange = Resources.Load<Material>("Materials/glowingOrange");
+        glowingWhite = Resources.Load<Material>("Materials/glowingWhite");
         r = GetComponent<MeshRenderer>();
         EC = GameObject.Find("EventCentre").GetComponent<EventCentre>();
         r.material = red;
@@ -23,7 +25,7 @@ public class MetaPointInteractable : XRSimpleInteractable
     protected override void OnHoverEntered(HoverEnterEventArgs args)
     {
         base.OnHoverEntered(args);
-        r.material = white;
+        r.material = glowingOrange;
     }
     protected override void OnHoverExited(HoverExitEventArgs args)
     {
@@ -33,6 +35,7 @@ public class MetaPointInteractable : XRSimpleInteractable
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
         base.OnSelectEntered(args);
+        r.material = glowingWhite;
         Debug.Log("Metadata point displayed");
         this.EC.displayMetadataPoint(data);
     }
