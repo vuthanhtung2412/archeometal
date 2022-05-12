@@ -28,6 +28,7 @@ namespace bdd_ep
         private static void open_database()
         {
             //Console.WriteLine("Opening Database...");
+            Debug.Log(Cs);
             _db = new SqliteConnection(Cs);
             _db.Open();
             //Console.WriteLine("Database is open !");

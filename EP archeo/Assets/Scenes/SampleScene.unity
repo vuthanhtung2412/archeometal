@@ -9248,8 +9248,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2120797689}
   - component: {fileID: 2120797688}
-  - component: {fileID: 2120797690}
   - component: {fileID: 2120797691}
+  - component: {fileID: 2120797690}
   m_Layer: 0
   m_Name: SelectionSystem
   m_TagString: Untagged
@@ -9299,10 +9299,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2120797687}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b88744aec2da6644a2f932ae464fcfb, type: 3}
+  m_Script: {fileID: 11500000, guid: 0dceb9d577f30f044a86f905352a164f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  archeoBuilder: {fileID: 2120797691}
+  archeoBuilder: {fileID: 0}
 --- !u!114 &2120797691
 MonoBehaviour:
   m_ObjectHideFlags: 0

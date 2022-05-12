@@ -15,13 +15,13 @@ public class ClippableObject : MonoBehaviour {
 
     public void Start() { 
 		// We make sure the correct shader is applied
-		Material[] mats=GetComponent<MeshRenderer>().materials;
+		Material[] mats=GetComponentInChildren<MeshRenderer>().materials;
 		
 		foreach (Material sharedMaterial in mats) {
 			sharedMaterial.shader=Shader.Find("Custom/StandardClippable");
 			sharedMaterial.renderQueue=(int)UnityEngine.Rendering.RenderQueue.Transparent;
 		}
-		GetComponent<MeshRenderer>().materials = mats;
+		GetComponentInChildren<MeshRenderer>().materials = mats;
 	}
 
     //only 3 clip planes for now, will need to modify the shader for more.
@@ -103,7 +103,7 @@ public class ClippableObject : MonoBehaviour {
     private void onVarUpdate()
     {
         //var sharedMaterial = new Material(GetComponent<MeshRenderer>().sharedMaterial);
-		Material[] mats=GetComponent<MeshRenderer>().materials;
+		Material[] mats=GetComponentInChildren<MeshRenderer>().materials;
 		
 		foreach (Material sharedMaterial in mats) {
 			//Only should enable one keyword. If you want to enable any one of them, you actually need to disable the others. 
@@ -152,7 +152,7 @@ public class ClippableObject : MonoBehaviour {
 			}
 		}
 		
-		GetComponent<MeshRenderer>().materials = mats;
+		GetComponentInChildren<MeshRenderer>().materials = mats;
 		
 		// Update the old values
 		clipPlanesOld = clipPlanes;

@@ -112,6 +112,36 @@ namespace bdd_ep
             }
 
         }
+
+        /// <summary>
+        /// Récupération des caractéristiques d'un objet archéologique
+        /// </summary>
+        public static ObjectArcheo[] getAll()
+        {
+            var extract = Database.DataReader($"SELECT * FROM obj");
+            ObjectArcheo[] tab = new ObjectArcheo[extract.Rows.Count];
+            for (int i = 0; i < extract.Rows.Count; i++)
+            {
+                int id = int.Parse(extract.Rows[i]["id_obj"].ToString()); // Oui c'est immonde, mais je sais pas comment faire autrement avec cette structure
+                string id_excavation = extract.Rows[i]["id_obj_excavation"].ToString();
+                string name = extract.Rows[i]["name"].ToString();
+                Vector3 position = new Vector3((float)extract.Rows[i]["init_position_x"],
+                    (float)extract.Rows[i]["init_position_y"], (float)extract.Rows[i]["init_position_z"]);
+                Vector3 rotation = new Vector3((float)extract.Rows[i]["init_rotation_x"],
+                    (float)extract.Rows[i]["init_rotation_y"], (float)extract.Rows[i]["init_rotation_z"]);
+                int view1 = int.Parse(extract.Rows[i]["view1"].ToString());
+                int view2 = int.Parse(extract.Rows[i]["view2"].ToString());
+                int view3 = int.Parse(extract.Rows[i]["view3"].ToString());
+                string description = extract.Rows[i]["description"].ToString();
+                int toy_obj_radius = 0;
+                int.TryParse(extract.Rows[i]["toy_obj_radius"].ToString(),out toy_obj_radius);
+                string toy_obj_color = extract.Rows[i]["toy_obj_color"].ToString();
+                tab[i] = new ObjectArcheo(id, id_excavation, name, position, rotation, view1, view2, view3, description,
+                    toy_obj_radius, toy_obj_color);
+            }
+            return tab;
+        }
+
         //Pour savoir si l'objet est un 'toy Object' ou pas, c'est à dire si on dispose du modèle 3D ou si l'on affiche simplement une forme
         bool isToyObject()
         {

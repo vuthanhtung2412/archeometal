@@ -246,5 +246,24 @@ namespace bdd_ep
                 return -1;
             return int.Parse(queryResult.Rows[0]["id_tag"].ToString()!);
         }
+
+        /// <summary>
+        /// Get all tags
+        /// </summary>
+        /// <returns>List of all tags, without any hierarchy</returns>
+        public static List<Tag> getAllTags()
+        {
+            var queryResult = Database.DataReader($"SELECT * FROM tag;");
+            var listToReturn = new List<Tag>();
+            foreach (DataRow row in queryResult.Rows)
+            {
+                listToReturn.Add(new Tag(
+                    int.Parse(row["id_tag"].ToString()!),
+                    row["tag_name"].ToString(),
+                    row["parent_tag"].ToString()
+                    ));
+            }
+            return listToReturn;
+        }
     }
 }
