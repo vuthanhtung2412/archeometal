@@ -1,29 +1,9 @@
 fileFormatVersion: 2
-guid: 33a4932d9cb589048b50f6676a940b82
+guid: 0855045c2232b2e4a9e0faff94ae81f5
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Tregueux.1001
-    second: {fileID: 2100000, guid: 0241ce1e56069ac4e939e2035f9cd492, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Tregueux.1002
-    second: {fileID: 2100000, guid: b2468384c6fc5634fbd73cf933545215, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Tregueux.1003
-    second: {fileID: 2100000, guid: c39bc2f650d608446912cf6a2d0a1738, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Tregueux.1004
-    second: {fileID: 2100000, guid: 4721546708bd3584982f82daa218091c, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
