@@ -131,6 +131,20 @@ public class GlobalClippingManager : MonoBehaviour {
 		getObject(id,planeObjectType.Camera).SetActive(b);
 		getObject(id,planeObjectType.Screen).SetActive(b);
 	}
+
+    public void Toggle()
+    {
+        if (planeNb == 0)
+        {
+            planeNb = 3;
+            cameraNb = 3;
+        }
+        else
+        {
+            planeNb = 0;
+            cameraNb = 0;
+        }
+    }
 }
 
 public enum planeObjectType {Plane, Camera, Screen};
