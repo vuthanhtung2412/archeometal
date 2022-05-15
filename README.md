@@ -10,7 +10,7 @@ We can take experiences from the precedents practicle studies, as the Momie proj
 ## Goal
 We aim to develop an interactive XR application to vizualize, manipulate and give additionnal informations on the archeological objects
 ## Students
-The project is developped by 4 INSA students : Dorian Humeau, Thibault Raoult, Thanh-Tung Vu and Matthieu Hillairet
+The project is developped by 4 INSA students : Dorian Humeau, Thibaut Raoul, Thanh-Tung Vu and Matthieu Hillairet
 ## framing
 Ronan Gaugne (IRISA) and Théophane Nicolas (INRAP) will frame this project
 ## Subject
