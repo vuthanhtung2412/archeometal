@@ -18,3 +18,11 @@ L'utilisateur doit posséder un casque de réalité virtuelle HTC Vive (ou HTC V
 ### Spécifications logicielles requises
 L'ordinateur doit posséder au minimum le système d'exploitation *Microsoft Windows 10*, des pilotes à jours (notamment du casque de réalité virtuelle). Le logiciel *Steam VR* doit être installé sur l'ordinateur pour être en mesure de lancer le programme.
 ## Lancement du programme
+
+## Utilisation du programme
+
+### Présentation de la scène
+### Manipulation des objets
+### Utilisation des plans de coupe
+### Consultation des informations à propos d'un objet
+### Affichage conditionné des objets
