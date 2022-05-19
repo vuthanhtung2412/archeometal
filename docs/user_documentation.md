@@ -1,28 +1,28 @@
-# Documentation utilisateur
-Le logiciel proposé a pour but de permettre aux archéologues et au grand public de visualiser, manipuler et analyser un dépôt archéologique.
+# User documentation
+The proposed software aims to allow archaeologists and the general public to visualize, manipulate and analyze an archaeological deposit.
 
-Il apporte de nouvelles perspectives pour caractériser les gestes et modalités de constitution des dépôts non funéraires.
+It brings new perspectives to characterize the gestures and modalities of constitution of non funerary deposits.
 
-La mise au jour de dépôts métalliques en contexte, prélevés en blocs donne l’opportunité de mettre en œuvre un protocole d’étude à même de préserver un maximum d’informations sur des ensembles organisés complexes, parfois composite, constitués d’objets alliant céramique, métaux, verre, ambre et de restes organiques ou disparus (contenant organique, textile…).
+The discovery of metallic deposits in context, taken in blocks, gives the opportunity to implement a study protocol able to preserve a maximum of information on complex organized sets, sometimes composite, made up of objects combining ceramics, metals, glass, amber and organic or disappeared remains (organic container, textile...).
 
-Sachant que dans ce questionnement, il y a des objectifs multiples, comme par exemple :
+Knowing that in this questioning, there are multiple objectives, as for example:
 
-- Ne pas perdre les informations livrées par le terrain ;
-- Documenter de manière pérenne des vestiges fragiles, peu manipulables, voire pour certains, quasiment impossible à conserver (en particulier l’ordonnancement…) ;
-- Mettre en place les mesures conservatoires adéquats en fonction des obserbvations
+- Not to lose the information delivered by the ground;
+- To document in a perennial way fragile vestiges, not very manipulable, even for some, almost impossible to preserve (in particular the arrangement...);
+- Implement adequate conservation measures according to the observations.
 
-Ce document est un manuel utilisateur qui a pour but de montrer la bonne utilisation du logiciel proposé.
-## Spécifications matérielles et logicielles requises
-### Spécifications matérielles requises
-L'utilisateur doit posséder un casque de réalité virtuelle HTC Vive (ou HTC Vive pro) ainsi que deux manettes HTC. Le logiciel doit être utilisé sur un ordinateur doté de matériel assez puissant pour utiliser un casque de réalité virtuelle (exemple : carte graphique dédiée puissante).
-### Spécifications logicielles requises
-L'ordinateur doit posséder au minimum le système d'exploitation *Microsoft Windows 10*, des pilotes à jours (notamment du casque de réalité virtuelle). Le logiciel *Steam VR* doit être installé sur l'ordinateur pour être en mesure de lancer le programme.
-## Lancement du programme
+This document is a user's manual which aims to show the correct use of the proposed software.
+## Hardware and software requirements
+### Hardware requirements
+The user must have an HTC Vive (or HTC Vive pro) virtual reality headset and two HTC controllers. The software must be used on a computer with hardware powerful enough to use a virtual reality headset (e.g. powerful dedicated graphics card).
+### Software requirements
+The computer must have at least the *Microsoft Windows 10* operating system, up-to-date drivers (including the virtual reality headset). The *Steam VR* software must be installed on the computer to be able to launch the program.
+## Launching the program
 
-## Utilisation du programme
+## Using the program
 
-### Présentation de la scène
-### Manipulation des objets
-### Utilisation des plans de coupe
-### Consultation des informations à propos d'un objet
-### Affichage conditionné des objets
+### Presentation of the scene
+### Handling of objects
+### Use of clipping plans
+### Viewing information about an object
+### Conditioned display of objects
