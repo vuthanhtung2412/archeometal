@@ -1,7 +1,7 @@
-# Documentation Technique
+# Technical documentation
 
-## Scripts d'interaction avec la base de données
-Chaque table de la base de données possède son script pour interagir avec la base de données.
+## Interaction scripts with the database
+Each database table has it script to interact with the database.
 
 
 [DataBase](./docs_classes/database.md)
