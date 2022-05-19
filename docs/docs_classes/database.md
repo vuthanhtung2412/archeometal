@@ -1,5 +1,5 @@
 # Database
-Utility static class to interact with the Database
+Utility static class to interact with the Database. Theses methods are called in other scripts to read and write from/into the database.
 ## open_database
 Open the Database
 ```c#
@@ -41,7 +41,7 @@ Write data from the Database
 public static void DataWriter(string command)
 ```
 ## DoubleApostropheAndRemoveSemiColumn
-Double apostrophes and remove semi-columns in a string
+Double apostrophes and remove semi-columns in a string. Refers to SQL injections, see [there](../technical_documentation.md#about-sql-injections).
 
 **Params :**
 - text : A string
