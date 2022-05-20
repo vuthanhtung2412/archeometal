@@ -114,7 +114,7 @@ namespace bdd_ep
         }
 
         /// <summary>
-        /// Récupération des caractéristiques d'un objet archéologique
+        /// Récupération des caractéristiques de tous les objets stockés
         /// </summary>
         public static ObjectArcheo[] getAll()
         {
