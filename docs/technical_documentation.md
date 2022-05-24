@@ -14,6 +14,26 @@ We have had to select the best density slots to see correctly the different obje
 
 ![image](./img/db.png)
 
+##### Obj (describe an archeological object)
+Each object is describe by fields :
+- An id is given at the import into the scene
+- An id is given by the experts during the excavation
+- A name
+- Initial position (in three dimensions) to locate the object in the scene
+- Initial rotation to give orientation to the object
+- View1, View2, and View3 are true (i.e. equal to 1) when the object is present in excavation stage 1 (or 2 or 3).
+- A description is given to describe verbatim the object
+- A toy object is a circle or a cube that represents the object when we do not have individual 3D-model related to this object. A color and a radius describe the toy object.
+
+##### Metadata
+A metadata is an image, text that is realated to the object. A name describe the metadata and the id_obj identify the metadata object. The type_name describe the type the metadata is. The URI is the path to the real metadata. Relative position describe the metadata position relatively to the center of gravity of the object.
+
+##### Tag
+A tag is a word (or word group) that describe briefly the object. A tag can have a parent that is also a tag (recursive parentality).
+
+##### tag_mag
+This register the link between a tag and an object.
+
 ### Interact
 
 #### With the object in scene
