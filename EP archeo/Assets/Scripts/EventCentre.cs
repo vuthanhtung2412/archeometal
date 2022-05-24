@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class EventCentre : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     private GameObject studyObj = null;
     public int mode = 0;
     private GameObject mesh = null;
