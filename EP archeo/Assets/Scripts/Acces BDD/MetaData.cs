@@ -1,6 +1,6 @@
 using System.Data;
 using System.Collections.Generic;
-
+using UnityEngine;
 
 namespace bdd_ep
 {
@@ -212,5 +212,30 @@ namespace bdd_ep
 
             return "";
         }
+
+        /// this block is added by tung to retrieve metadata by idObj
+        public static List<MetadataTung> GetMetadataByidObj(int id)
+        {
+            List<MetadataTung> res = new List<MetadataTung>();
+            var data = Database.DataReader($"SELECT * FROM metadata WHERE id_obj = '{id}'");
+            foreach (DataRow row in data.Rows)
+            {
+                Debug.Log((string)row["name"]);
+                
+                res.Add(new MetadataTung((string)row["name"],
+                    id,
+                    (string)(row["type_name"]),
+                    (string)(row["uri"]),
+                    (float)(row["relative_position_x"]),
+                    (float)(row["relative_position_y"]),
+                    (float)(row["relative_position_z"]),
+                    (string)(row["description"]),
+                    (string)(row["photoURL"])
+                    ));
+                
+            }
+            return res;
+        }
+
     }
 }

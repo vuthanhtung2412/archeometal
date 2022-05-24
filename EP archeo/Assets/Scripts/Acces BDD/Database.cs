@@ -15,7 +15,7 @@ namespace bdd_ep
         /// <summary>
         /// Path to the Database
         /// </summary>
-        private static string Cs = "URI=file:" + Application.streamingAssetsPath + "/db_artefact_augmente.db";
+        private static string Cs = "URI=file:" + Application.streamingAssetsPath + "/db_artefact_augmente_tung.db";
 
         /// <summary>
         /// The Database object

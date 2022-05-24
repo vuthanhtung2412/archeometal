@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using bdd_ep;
 
 public class Info : MonoBehaviour
 {
@@ -18,16 +19,19 @@ public class Info : MonoBehaviour
     public GameObject pointPrefabs;
     private void Awake()
     {
-        GetTagsAndMetadatas();
+        
     }
     private void Start()
     {
         this.pointPrefabs = Resources.Load<GameObject>("MetadataPoint");
+        GetTagsAndMetadatas();
         CreateDataPoints();
     }
     void GetTagsAndMetadatas()
     {
         // To be finished with database de thibault
+        metaDatas = MetaData.GetMetadataByidObj(idObj);
+        Debug.Log("dmm");
     }
 
     // Create dataPoints game object and its children dynamically with collider and metaDatas
@@ -36,7 +40,7 @@ public class Info : MonoBehaviour
         // create Data Points empty game object
         this.dataPoints = new GameObject("Data Points");
         this.dataPoints.transform.SetParent(transform);
-        this.dataPoints.transform.localPosition = GetComponent<CapsuleCollider>().center;
+        this.dataPoints.transform.localPosition = gameObject.transform.Find("centre").localPosition;
 
         // add metadata point dynamically
         foreach(MetadataTung m in this.metaDatas)
