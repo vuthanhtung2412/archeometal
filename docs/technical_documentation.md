@@ -51,7 +51,7 @@ This is managed by all scripts in Tag menu folder: ArcheoBuilder initialize all 
 
 ##### ...To show metadatas
 
-As we said, some functions to interact with metadatas are already in EventCentre script, but this one needs some others function to do his actions : Info will get the metadatas linked to the selected object, and informations linked to them. MetadataTung is the class that describe how works the metadatas. Finally, MetaPointInteractable describe the working of a point locating a matadata on the object.
+As we said, some functions to interact with metadatas are already in EventCentre script, but this one needs some others function to do his actions : Info will get the metadatas linked to the selected object, and informations linked to them. MetadataTung is the structure that describe the metadatas. Finally, MetaPointInteractable allows to update the canvas with the information linked to the point you choose.
 
 ##### ...To use all tools
 We propose, in this solution, a tool wheel : it allows to use all the tools described in here, by using the touch pad on the controller : inputs are managed by the InputManager, and actions ar performed by radialMenu. 
