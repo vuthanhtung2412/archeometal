@@ -5772,23 +5772,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 46762d2095c56a640b501a52eaac440f, type: 3}
   m_PrefabInstance: {fileID: 457700158}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1106000742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106000739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19217ed55cc6a5944b7b549036c90e55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idObj: 1
-  metaDatas: []
-  tags: []
-  children: []
-  pointPrefabs: {fileID: 0}
 --- !u!1 &1112387367 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7949867569115068648, guid: e34ed511fb45f2849a53e98192168e2b, type: 3}

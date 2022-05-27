@@ -46,8 +46,11 @@ public class DatabaseLoader : MonoBehaviour, ArcheoLoader
         internalTagList = new List<TagList>();
         internalObjList = ObjectArcheo.getAll();
         taglessObjects = new List<ObjectArcheo>(internalObjList);
-        foreach (ObjectArcheo o in internalObjList)
+        foreach (ObjectArcheo o in internalObjList) {
             archeoBuilder.init(o.me);
+			Info i = o.me.AddComponent<Info>();
+			i.idObj = o.id;
+		}
         List<Tag> databaseTags = Tag.getAllTags();
         internalTagList = new List<TagList>();
         // We add each root tag, and their children recursively
