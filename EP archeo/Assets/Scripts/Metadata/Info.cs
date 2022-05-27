@@ -8,9 +8,6 @@ public class Info : MonoBehaviour
     [SerializeField]
     public List<MetadataTung> metaDatas = new List<MetadataTung>(); 
 
-    [SerializeField]
-    public List<TagTung> tags = new List<TagTung>();
-
     private GameObject dataPoints;
 
     [SerializeField]
