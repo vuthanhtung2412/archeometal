@@ -7,7 +7,7 @@ You are in the repository of a group project for the INSA fourth year. It is dev
  + Cntting planes
  + Hide/Display only certain details for focused study
  + Details annotation
-## Demos
+## Demos videos
 ### Clipping planes
 [![Watch the video](demos/archeo_bg1.png)](demos/Demo-Clipping2.mp4)
 ### General object manipulation
